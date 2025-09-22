@@ -1,0 +1,28 @@
+<div class="card p-3 mt-3">
+    <h4>Register New Patient</h4>
+    <form (ngSubmit)="addPatient()">
+        <div class="mb-2">
+            <label for="name" class="from-label">Patient Name</label>
+            <input id="name" type="text" [(ngModel)]="name" placeholder="Enter Name.." class="form-control" name="name"> 
+        </div>
+        <div class="mb-2">
+            <label for="age" class="from-label">Age</label>
+            <input id="age" type="number" class="form-control" [(ngModel)]="age" placeholder="Enter Age.." name="age">
+        </div>
+        <div class="mb-2">
+            <select [(ngModel)]="gender" name="gender" class="form-select">
+                <option value="" disabled selected>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Add Patient</button>
+    </form>
+
+    <h5 class="mt-3">All Patients</h5>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let p of patients">
+            {{ p.id }} - {{ p.name }} {{ p.age }} years, {{ p.gender }}
+        </li>
+    </ul>
+</div>

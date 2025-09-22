@@ -50,10 +50,17 @@ export class Consultation {
 
   ]
 
+   private patientsSubject = new BehaviorSubject<Patient[]>(this.patients);
+   patients$ = this.patientsSubject.asObservable();
+
   private consultationRecordsSubject = new BehaviorSubject<ConsultationRecord[]>(this.consultationRecords);
   consultationRecord$ = this.consultationRecordsSubject.asObservable();
 
   constructor() {}
+
+  addPatient(patient: Patient) {
+    this.patients.push(patient);
+  }
 
   getPatients(): Patient[]{
     return this.patients;

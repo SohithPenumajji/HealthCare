@@ -21,14 +21,14 @@ export class DoctorDashboard implements OnInit{
     constructor(private consultationService: Consultation) { }
 
     ngOnInit(): void {
+  this.consultationService.patients$.subscribe(patients => {
+    this.patients = patients;
+  });
 
-        this.patients = this.consultationService.getPatients();
-
-        this.consultationService.consultationRecord$.subscribe(records=>{
-          this.consultationRecords = records;
-        })
-
-    }
+  this.consultationService.consultationRecord$.subscribe(records => {
+    this.consultationRecords = records;
+  });
+}
 
     onPatientSelected(patient: Patient)
     {

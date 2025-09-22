@@ -3,8 +3,11 @@
     <input id="patientSearch" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Enter Patient Name">
 </div>
 
+
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let patient of filteredPatients" (click)="onSelectPatient(patient)">
         {{ patient.name }} ({{ patient.age }} years, {{ patient.gender }})
     </li>
 </ul>
+
+<br>
